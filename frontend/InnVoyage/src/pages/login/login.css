@@ -1,26 +1,91 @@
 .login {
   height: 100vh;
   display: flex;
+  width: 100%;
+  background-color: #141414;
   align-items: center;
   justify-content: center;
 }
+.left{
+  padding: 20px;
+  text-align: center;
+  line-height: 20px;
+  background-color: #80808040;
+  border-radius: 12px;
+  border: 1px solid white;
+}
 
+h1{
+  color: white;
+}
+
+h5{
+  color: wheat;
+  font-size: 16px;
+  padding: 8px 4px;
+}
+
+a{
+  color: inherit;
+  text-decoration: underline;
+  font-size: larger;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.notebox{
+  background-color: #f0f8ff50;
+  padding: 10px;
+  line-height: 24px;
+  border-radius: 6px;
+  border: 1px solid whitesmoke;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.listBox{
+  text-align: start;
+  padding: 10px;
+  color: wheat;
+}
+
+.colorizer{
+  color:chocolate
+}
+
+
+
+.row{
+  width: 90%;
+}
 .lContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .lInput{
-  height: 30px;
+  height: 50px;
   padding: 10px;
+  border-radius: 4px;
+  width: 50%;
+  
 }
 
 .lButton {
   border: none;
   padding: 10px 20px;
-  background-color: #0071c2;
+  background-color:chocolate;
   color: white;
+  width: 30%;
+  margin-top: 10px;
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
@@ -29,4 +94,9 @@
 .lButton:disabled{
   background-color: #0071c28c;
   cursor: not-allowed;
+}
+
+.right{
+  padding: 30px;
+  color: whitesmoke;
 }

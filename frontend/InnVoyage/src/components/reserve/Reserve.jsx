@@ -55,14 +55,17 @@ const Reserve = ({ setOpen, hotelId }) => {
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
-          const res = axios.put(`/rooms/availability/${roomId}`, {
+          const res = axios.put(`https://innvoyage-hotel-management.onrender.com/api/rooms/availability/${roomId}`, {
             dates: alldates,
           });
           return res.data;
         })
       );
-      setOpen(false);
-      navigate("/");
+      
+      // Show popup
+      window.alert("Room has been registered successfully!")
+        navigate("/homepage");
+      
     } catch (err) {}
   };
   return (
