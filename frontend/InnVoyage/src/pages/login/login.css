@@ -100,3 +100,28 @@ a{
   padding: 30px;
   color: whitesmoke;
 }
+
+
+.spinner-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 9999;
+  color: chocolate;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loadingpara{
+  color: wheat;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+  margin: 20px;
+}

@@ -11,6 +11,7 @@ const Login = () => {
     password: "apasswordforVoyageTester",
   });
 
+  const [isLoading, setIsLoading] = useState(false); 
   const { loading, error, dispatch } = useContext(AuthContext);
 
   const navigate = useNavigate()
@@ -21,13 +22,17 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     dispatch({ type: "LOGIN_START" });
     try {
       const res = await axios.post("https://innvoyage-hotel-management.onrender.com/api/auth/login", credentials);
+      console.log(res);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/homepage")
+     navigate("/homepage")
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+     dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }finally {
+     setIsLoading(false); // Set spinner to inactive
     }
   };
 
@@ -36,12 +41,21 @@ const Login = () => {
 
 
     <div className="login">
+      {/* New spinner code */}
+      {isLoading && (
+        <div className="spinner-container">
+          <div className="spinner-border" role="status">
+            <span className="sr-only m-2"></span>
+          </div>
+          <p className="loadingpara">This website is hosted on the render free instance type ❤️<br/>So 'Time to First Byte' may take a moment. Your patience is appreciated.</p>
+        </div>
+      )}
       <div className="row">
         <div className="col-12 col-md-6 left">
        <h1>Welcome to InnVoyage!</h1>
        <h5>An Elegant Hotel Booking Experience Right at Your Fingertips.</h5> 
        <div className="notebox">
-       Note: This is a <a href="https://syedmoinahmed.dev/" target="_blank" rel="noreferrer">portfolio</a> project and is not intended for commercial use. So don't pack your bags just yet! 😄
+       Note: This is a <a href="https://syedmoinahmed.dev/" target="_blank" rel="noreferrer">Portfolio</a> project and is not intended for commercial use. So don't pack your bags just yet! 😄
        <br/>
        </div>
        <div className="listBox">
